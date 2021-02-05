@@ -1,0 +1,15 @@
+body {
+    background-color: lemonchiffon;
+}
+
+section {
+    background-color: steelblue;
+    height: 300px;
+    width: 300px;
+}
+
+div {
+    background-color: papayawhip;
+    height: 60px;
+    width: 40px;
+}
