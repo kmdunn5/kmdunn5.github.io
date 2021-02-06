@@ -14,7 +14,6 @@ let dealerTotal = '';
 //=====================//
 
 class BlackJackConstants {
-    static $card = $('.card');
     static $playerArea = $('#playerArea');
     static $dealerArea = $('#dealerArea');
     static $dealButton = $('#deal');
@@ -28,16 +27,20 @@ class BlackJackConstants {
 //====Card Methods=====//
 //=====================//
 
-class CreateCard {
+class CardMethods {
     static randomCard = (key) => {
         return Math.floor(Math.random() * key.length);
     }
     static cardNumber = () => {
-        return BlackJackConstants.cardNumbers[CreateCard.randomCard(BlackJackConstants.cardNumbers)];
+        return BlackJackConstants.cardNumbers[CardMethods.randomCard(BlackJackConstants.cardNumbers)];
     }
     static cardSuit = () => {
-        return BlackJackConstants.cardSuits[CreateCard.randomCard(BlackJackConstants.cardSuits)];
+        return BlackJackConstants.cardSuits[CardMethods.randomCard(BlackJackConstants.cardSuits)];
     };
+    static dealCard = (area) => {
+        const $newCard = $('<div>').addClass('card');
+        area.append($newCard);
+    }
 }
 
 class Card {
@@ -51,15 +54,18 @@ class Card {
 //====Button Methods===//
 //=====================//
 
-class ButtonsMethods {
+class ButtonMethods {
     static deal = () => {
         //remove card divs
+        $('.card').remove()
         //add card div to player
-        const $newCard = $('<div>').addClass('card');
-        $playerArea.append($newCard);
+        CardMethods.dealCard(BlackJackConstants.$playerArea);
         //add card div to dealer facedown
+        CardMethods.dealCard(BlackJackConstants.$dealerArea);
         //add card div to player
+        CardMethods.dealCard(BlackJackConstants.$playerArea);
         //add card div to deal
+        CardMethods.dealCard(BlackJackConstants.$dealerArea);
     }
     static hit = () => {
         // add card to player area
@@ -82,9 +88,8 @@ const dealerTurn = () => {
 //==Button On Clicks===//
 //=====================//
 
+BlackJackConstants.$dealButton.click(ButtonMethods.deal);
 
-const card1 = new Card(CreateCard.cardNumber(), CreateCard.cardSuit());
+const card1 = new Card(CardMethods.cardNumber(), CardMethods.cardSuit());
 
 console.log(card1.number + ' of ' + card1.suit)
-console.log(BlackJackConstants.cardSuits)
-
