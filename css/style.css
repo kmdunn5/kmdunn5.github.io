@@ -1,15 +1,30 @@
 body {
-    background-color: lemonchiffon;
+    background-color: rgb(12, 83, 12);
 }
 
 section {
     background-color: steelblue;
     height: 300px;
     width: 300px;
+    border: 3px solid black;
 }
 
-div {
+.cardContainer {
+    position: absolute;
+    margin-top: 40px;
+    background-color: fuchsia;
+    border: 1px solid orange;
+}
+
+.card {
     background-color: papayawhip;
     height: 60px;
     width: 40px;
+    border: 2px solid darkslategray;
+}
+
+#buttons {
+    background-color: forestgreen;
+    height: max-content;
+    width: max-content;
 }

@@ -38,3 +38,7 @@ JS ideas
         () Reveal hidden card
         () Deal hits until their total is 16, then stands
     [] Compare totals, winner wins
+
+
+    Citations:
+    card styling ideas: https://www.youtube.com/watch?v=D2H5rMK5AI8&ab_channel=CodeWhisperer
