@@ -4,8 +4,8 @@ body {
 
 section {
     background-color: steelblue;
-    height: 300px;
-    width: 300px;
+    height: 400px;
+    width: 400px;
     border: 3px solid black;
 }
 
@@ -18,9 +18,15 @@ section {
 
 .card {
     background-color: papayawhip;
-    height: 60px;
-    width: 40px;
+    height: 100px;
+    width: 75px;
     border: 2px solid darkslategray;
+}
+
+.facedown {
+    background-image: url("../img/Jack_Black_Basic.jpeg");
+    background-size: cover;
+    color: transparent;
 }
 
 #buttons {
@@ -28,4 +34,3 @@ section {
     height: max-content;
     width: max-content;
 }
-

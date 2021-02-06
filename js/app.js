@@ -20,7 +20,7 @@ class BlackJackConstants {
     static $hitButton = $('#hit');
     static $standButton = $('#stand');
     static cardNumbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'];
-    static cardSuits = ['Heart', 'Diamond', 'Spade', 'Club'];
+    static cardSuits = ['Hearts', 'Diamonds', 'Spades', 'Clubs'];
 }
 
 //=====================//
@@ -36,9 +36,17 @@ class CardMethods {
     }
     static cardSuit = () => {
         return BlackJackConstants.cardSuits[CardMethods.randomCard(BlackJackConstants.cardSuits)];
-    };
+    }
     static dealCard = (area) => {
         const $newCard = $('<div>').addClass('card');
+        $newCard.addClass(`${CardMethods.cardNumber()} ${CardMethods.cardSuit()}`);
+        $newCard.text(`${CardMethods.cardNumber()} of ${CardMethods.cardSuit()}`)
+        area.append($newCard);
+    }
+    static dealFacedownCard = (area) => {
+        const $newCard = $('<div>').addClass('card');
+        $newCard.addClass(`${CardMethods.cardNumber()} ${CardMethods.cardSuit()} facedown`);
+        $newCard.text(`${CardMethods.cardNumber()} of ${CardMethods.cardSuit()}`);
         area.append($newCard);
     }
 }
@@ -72,7 +80,7 @@ class ButtonMethods {
             //add card div to player
             CardMethods.dealCard(BlackJackConstants.$playerArea);
             //add card div to dealer facedown
-            CardMethods.dealCard(BlackJackConstants.$dealerArea);
+            CardMethods.dealFacedownCard(BlackJackConstants.$dealerArea);
             //add card div to player
             CardMethods.dealCard(BlackJackConstants.$playerArea);
             //add card div to deal
@@ -96,6 +104,7 @@ class ButtonMethods {
             // set game state to dealer turn
             currentGameState = gameStates[1];
             console.log(currentGameState);
+            $('.facedown').toggleClass('facedown')
             dealerTurn();
         }
     }
