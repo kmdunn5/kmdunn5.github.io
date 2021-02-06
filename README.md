@@ -25,7 +25,7 @@ CSS ideas:
 
 JS ideas
     [] Make the deal button deal a hand only if the player has won or lost
-        () Randomize cards somehow
+        (X) Randomize cards somehow
         () Player gets a card, dealer gets a facedown card
         () Player gets a card, dealer gets a card
             {} If the player has a K|Q|J and A, player wins

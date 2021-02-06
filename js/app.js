@@ -5,7 +5,6 @@ cardSuits = ['Heart', 'Diamond', 'Spade', 'Club'];
 
 class CreateCard {
     static randomCard = (key) => {
-        // console.log(Math.floor(Math.random() * key.length));
         return Math.floor(Math.random() * key.length);
     }
     static cardNumber = () => {
