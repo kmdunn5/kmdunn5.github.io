@@ -21,6 +21,8 @@ class BlackJackConstants {
     static $standButton = $('#stand');
     static cardNumbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'];
     static cardSuits = ['Hearts', 'Diamonds', 'Spades', 'Clubs'];
+    static playerHand = [];
+    static dealerHand = [];
 }
 
 //=====================//
@@ -37,10 +39,14 @@ class CardMethods {
     static cardSuit = () => {
         return BlackJackConstants.cardSuits[CardMethods.randomCard(BlackJackConstants.cardSuits)];
     }
+    static createCard = (faceStatus) => {
+        let card = new Card(CardMethods.cardNumber(), CardMethods.cardSuit(), faceStatus);
+        return card
+    }
     static dealCard = (area) => {
         const $newCard = $('<div>').addClass('card');
         $newCard.addClass(`${CardMethods.cardNumber()} ${CardMethods.cardSuit()}`);
-        $newCard.text(`${CardMethods.cardNumber()} of ${CardMethods.cardSuit()}`)
+        $newCard.text(`${CardMethods.cardNumber()} of ${CardMethods.cardSuit()}`);
         area.append($newCard);
     }
     static dealFacedownCard = (area) => {
@@ -52,11 +58,17 @@ class CardMethods {
 }
 
 class Card {
-    constructor (number, suit) {
+    constructor (number, suit, face) {
         this.number = number;
         this.suit = suit
+        this.face = face
     }
 }
+
+
+BlackJackConstants.playerHand.push(CardMethods.createCard('down'));
+BlackJackConstants.playerHand.push(CardMethods.createCard('up'));
+console.log(BlackJackConstants.playerHand);
 
 //=====================//
 //====Dealer's Turn====//
@@ -119,6 +131,12 @@ BlackJackConstants.$dealButton.click(ButtonMethods.deal);
 BlackJackConstants.$hitButton.click(ButtonMethods.hit);
 BlackJackConstants.$standButton.click(ButtonMethods.stand);
 
-const card1 = new Card(CardMethods.cardNumber(), CardMethods.cardSuit());
 
-console.log(card1.number + ' of ' + card1.suit);
+
+
+
+
+// Thought process for recording cards totals
+// when dealing a card, create a new card object and push it into the proper hand array
+//      to accomplish this, I have to make the random number function return the number instead of the index....
+// make a new function that creates cards, calling each randomNumber and randomSuit as parameters, which will then fill the text, and the object
