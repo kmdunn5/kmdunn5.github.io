@@ -9,6 +9,10 @@ section {
     border: 3px solid black;
 }
 
+span {
+    font-weight: bold;
+}
+
 .cardContainer {
     position: absolute;
     margin-top: 40px;

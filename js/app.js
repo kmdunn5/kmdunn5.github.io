@@ -41,26 +41,25 @@ class CardMethods {
     }
     static createCard = (number, suit, faceStatus) => {
         let card = new Card(number, suit, faceStatus);
-        return card
+        return card;
     }
-    static dealCard = (area, face) => {
+    static dealCard = (area, face, hand) => {
         let $newDiv = $('<div>').addClass('card');
         let num = this.cardNumber();
         let suit = this.cardSuit();
         let newCard = this.createCard(num, suit, face);
-        BlackJackConstants.playerHand.push(newCard)
+        hand.push(newCard);
         $newDiv.addClass(`${num} ${suit} ${newCard.face}`);
         $newDiv.text(`${num} of ${suit}`);
         area.append($newDiv);
-        console.log(BlackJackConstants.playerHand)
     }
 }
 
 class Card {
     constructor (number, suit, face) {
         this.number = number;
-        this.suit = suit
-        this.face = face
+        this.suit = suit;
+        this.face = face;
     }
 }
 
@@ -72,7 +71,7 @@ class Card {
 
 const dealerTurn = () => {
     currentGameState = gameStates[2];
-    console.log(currentGameState)
+    console.log(currentGameState);
 }
 
 
@@ -86,15 +85,16 @@ class ButtonMethods {
             //remove card divs
             $('.card').remove()
             //add card div to player
-            CardMethods.dealCard(BlackJackConstants.$playerArea, 'up');
+            CardMethods.dealCard(BlackJackConstants.$playerArea, 'up', BlackJackConstants.playerHand);
             //add card div to dealer facedown
-            CardMethods.dealCard(BlackJackConstants.$dealerArea, 'down');
+            CardMethods.dealCard(BlackJackConstants.$dealerArea, 'down', BlackJackConstants.dealerHand);
             //add card div to player
-            CardMethods.dealCard(BlackJackConstants.$playerArea, 'up');
+            CardMethods.dealCard(BlackJackConstants.$playerArea, 'up', BlackJackConstants.playerHand);
             //add card div to deal
-            CardMethods.dealCard(BlackJackConstants.$dealerArea, 'up');
+            CardMethods.dealCard(BlackJackConstants.$dealerArea, 'up', BlackJackConstants.dealerHand);
             currentGameState = gameStates[0];
-            console.log(currentGameState)
+            console.log(currentGameState);
+            console.log(BlackJackConstants.playerHand, BlackJackConstants.dealerHand);
         } else {
             console.log('The game is in progress. Please finish the hand');
         }
@@ -102,9 +102,10 @@ class ButtonMethods {
     static hit = () => {
         if (currentGameState === 'Player\'s Turn') {
             // add card to player area
-            CardMethods.dealCard(BlackJackConstants.$playerArea, 'up');
+            CardMethods.dealCard(BlackJackConstants.$playerArea, 'up', BlackJackConstants.playerHand);
+            console.log(BlackJackConstants.playerHand, BlackJackConstants.dealerHand);
         } else {
-            console.log('It\'s not your turn.')
+            console.log('It\'s not your turn.');
         }
     }
     static stand = () => {
@@ -112,8 +113,9 @@ class ButtonMethods {
             // set game state to dealer turn
             currentGameState = gameStates[1];
             console.log(currentGameState);
-            $('.facedown').toggleClass('facedown')
+            $('.facedown').toggleClass('facedown');
             dealerTurn();
+            console.log(BlackJackConstants.playerHand, BlackJackConstants.dealerHand);
         }
     }
 }
