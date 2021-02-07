@@ -23,7 +23,7 @@ section {
     border: 2px solid darkslategray;
 }
 
-.facedown {
+.down {
     background-image: url("../img/Jack_Black_Basic.jpeg");
     background-size: cover;
     color: transparent;
