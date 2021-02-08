@@ -45,16 +45,22 @@ class BlackJackConstants {
         return total
     }
     static checkWinner = () => {
-        if (playerTotal > dealerTotal) {
-            console.log('Player Wins!');
-        } else if (dealerTotal > playerTotal) {
-            console.log('Dealer Wins!');
+        if (currentGameState !== gameStates[2]) {
+            if (playerTotal > dealerTotal) {
+                console.log('Player Wins!');
+            } else if (dealerTotal > playerTotal) {
+                console.log('Dealer Wins!');
+            } else {
+                console.log('You both have the same number, it\'s a push!')
+            }
         }
     }
     static checkBust = () => {
         if (playerTotal > 21) {
+            currentGameState = gameStates[2]
             console.log('Player Busted');
         } else if (dealerTotal > 21) {
+            currentGameState = gameStates[2]
             console.log('Dealer Busted!');
         }
     }
@@ -106,8 +112,16 @@ class Card {
 //=====================//
 
 const dealerTurn = () => {
+    dealerTotal = BlackJackConstants.sum(BlackJackConstants.dealerHand)
+    $('#dealerTotal').text(dealerTotal);
+    while (dealerTotal < 16) {
+        CardMethods.dealCard(BlackJackConstants.$dealerArea, 'up', BlackJackConstants.dealerHand);
+        dealerTotal = BlackJackConstants.sum(BlackJackConstants.dealerHand);
+        $('#dealerTotal').text(dealerTotal);
+    }
+    BlackJackConstants.checkBust();
+    BlackJackConstants.checkWinner();
     currentGameState = gameStates[2];
-    console.log(currentGameState);
 }
 
 
@@ -124,6 +138,10 @@ class ButtonMethods {
             $('.card').remove();
             BlackJackConstants.playerHand.splice(0, BlackJackConstants.playerHand.length);
             BlackJackConstants.dealerHand.splice(0, BlackJackConstants.dealerHand.length);
+            playerTotal = BlackJackConstants.sum(BlackJackConstants.playerHand);
+            $('#playerTotal').text(playerTotal);
+            dealerTotal = BlackJackConstants.sum(BlackJackConstants.dealerHand);
+            $('#dealerTotal').text('');
             
             //=======add card div to player
 
@@ -145,13 +163,16 @@ class ButtonMethods {
             //========add card div to deal
 
             CardMethods.dealCard(BlackJackConstants.$dealerArea, 'up', BlackJackConstants.dealerHand);
-            // $('#dealerTotal').text(BlackJackConstants.sum(BlackJackConstants.dealerHand));
+            dealerTotal = BlackJackConstants.sum(BlackJackConstants.dealerHand);
+
+            // 
+
             currentGameState = gameStates[0];
             console.log(currentGameState);
             if (playerTotal === 21) {
                 console.log('Jack Black! I mean Blackjack! Player wins!');
                 currentGameState = gameStates[2];
-                console.log(currentGameState)
+                console.log(currentGameState);
             }
         } else {
             console.log('The game is in progress. Please finish the hand');
@@ -165,6 +186,7 @@ class ButtonMethods {
             CardMethods.dealCard(BlackJackConstants.$playerArea, 'up', BlackJackConstants.playerHand);
             playerTotal = BlackJackConstants.sum(BlackJackConstants.playerHand);
             $('#playerTotal').text(playerTotal);
+            BlackJackConstants.checkBust();
         } else {
             console.log('It\'s not your turn.');
         }
@@ -176,9 +198,8 @@ class ButtonMethods {
             
             currentGameState = gameStates[1];
             console.log(currentGameState);
-            $('.facedown').toggleClass('facedown');
+            $('.down').toggleClass('down');
             dealerTurn();
-            console.log(BlackJackConstants.playerHand, BlackJackConstants.dealerHand);
         }
     }
 }
