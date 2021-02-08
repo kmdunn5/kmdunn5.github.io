@@ -22,9 +22,10 @@ span {
 
 .card {
     background-color: papayawhip;
-    height: 100px;
-    width: 75px;
+    height: 125px;
+    width: 100px;
     border: 2px solid darkslategray;
+    display: inline-block;
 }
 
 .down {
@@ -33,8 +34,45 @@ span {
     color: transparent;
 }
 
+.\32 {
+    background-color: cornsilk;
+}
+
+.\33 {
+    background-color: cornsilk;
+}
+
+.\34 {
+    background-color: cornsilk;
+}
+
+.\35 {
+    background-color: cornsilk;
+}
+
+.\36 {
+    background-color: cornsilk;
+}
+
+.\37 {
+    background-color: cornsilk;
+}
+
+.\38 {
+    background-color: cornsilk;
+}
+
+.\39 {
+    background-color: cornsilk;
+}
+
+.\31 0 {
+    background-color: peru;
+}
+
 #buttons {
     background-color: forestgreen;
     height: max-content;
     width: max-content;
 }
+
