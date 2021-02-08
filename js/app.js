@@ -19,27 +19,31 @@ class BlackJackConstants {
     static $dealButton = $('#deal');
     static $hitButton = $('#hit');
     static $standButton = $('#stand');
-    static cardNumbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'];
+    static cardNumbers = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'];
     static cardSuits = ['Hearts', 'Diamonds', 'Spades', 'Clubs'];
     static playerHand = [];
     static dealerHand = [];
     static sum = (hand) => {
         let total = 0;
+        let numberOfAces = 0;
         for (let i = 0; i < hand.length; i++) {
 
             if (hand[i].number === 'J' || hand[i].number === 'Q' || hand[i].number === 'K') {
                 total = parseInt(total) + 10;
 
             } else if (hand[i].number === 'A') {
-                if (total < 10) {
-                    total = parseInt(total) + 11;
-
-                } else {
-                    total = parseInt(total) + 1;
-                }
+                numberOfAces += 1
 
             } else {
                 total = parseInt(total) + parseInt(hand[i].number, 10);
+            }
+        }
+        if (numberOfAces > 0) {
+            total += numberOfAces - 1;
+            if (total < 11) {
+                total += 11;
+            } else {
+                total += 1;
             }
         }
         return total
@@ -212,6 +216,8 @@ class ButtonMethods {
 BlackJackConstants.$dealButton.click(ButtonMethods.deal);
 BlackJackConstants.$hitButton.click(ButtonMethods.hit);
 BlackJackConstants.$standButton.click(ButtonMethods.stand);
+
+
 
 
 
