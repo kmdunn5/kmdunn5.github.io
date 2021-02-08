@@ -108,20 +108,30 @@ const dealerTurn = () => {
 class ButtonMethods {
     static deal = () => {
         if (currentGameState === 'Game End' || currentGameState === '') {
-            //remove card divs
+            
+            //========remove card divs
+            
             $('.card').remove();
             BlackJackConstants.playerHand.splice(0, BlackJackConstants.playerHand.length);
             BlackJackConstants.dealerHand.splice(0, BlackJackConstants.dealerHand.length);
-            //add card div to player
+            
+            //=======add card div to player
+
             CardMethods.dealCard(BlackJackConstants.$playerArea, 'up', BlackJackConstants.playerHand);
             $('#playerTotal').text(BlackJackConstants.sum(BlackJackConstants.playerHand));
-            //add card div to dealer facedown
+            
+            //======add card div to dealer facedown
+
             CardMethods.dealCard(BlackJackConstants.$dealerArea, 'down', BlackJackConstants.dealerHand);
             // $('#dealerTotal').text(BlackJackConstants.sum(BlackJackConstants.dealerHand));
-            //add card div to player
+
+            //=====add card div to player
+
             CardMethods.dealCard(BlackJackConstants.$playerArea, 'up', BlackJackConstants.playerHand);
             $('#playerTotal').text(BlackJackConstants.sum(BlackJackConstants.playerHand));
-            //add card div to deal
+            
+            //========add card div to deal
+
             CardMethods.dealCard(BlackJackConstants.$dealerArea, 'up', BlackJackConstants.dealerHand);
             // $('#dealerTotal').text(BlackJackConstants.sum(BlackJackConstants.dealerHand));
             currentGameState = gameStates[0];
@@ -132,7 +142,9 @@ class ButtonMethods {
     }
     static hit = () => {
         if (currentGameState === 'Player\'s Turn') {
-            // add card to player area
+            
+            //========add card to player area
+            
             CardMethods.dealCard(BlackJackConstants.$playerArea, 'up', BlackJackConstants.playerHand);
             $('#playerTotal').text(BlackJackConstants.sum(BlackJackConstants.playerHand));
         } else {
@@ -141,7 +153,9 @@ class ButtonMethods {
     }
     static stand = () => {
         if (currentGameState === 'Player\'s Turn') {
-            // set game state to dealer turn
+            
+            //=======set game state to dealer turn
+            
             currentGameState = gameStates[1];
             console.log(currentGameState);
             $('.facedown').toggleClass('facedown');
