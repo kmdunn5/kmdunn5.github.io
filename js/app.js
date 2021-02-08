@@ -5,8 +5,8 @@ console.log('Jack Black time!')
 //=====================//
 const gameStates = ['Player\'s Turn', 'Dealer\'s Turn', 'Game End'];
 let currentGameState = '';
-let playerTotal = '';
-let dealerTotal = '';
+let playerTotal = 0;
+let dealerTotal = 0;
 
 
 //=====================//
@@ -23,33 +23,31 @@ class BlackJackConstants {
     static cardSuits = ['Hearts', 'Diamonds', 'Spades', 'Clubs'];
     static playerHand = [];
     static dealerHand = [];
-    static playerSum = () => {
-        playerTotal = 0;
-        for (let i = 0; i < this.playerHand.length; i++) {
-            console.log(this.playerHand[i]);
-            console.log(this.playerHand[i.number]);
+    static sum = (hand) => {
+        let total = 0;
+        for (let i = 0; i < hand.length; i++) {
+            console.log(hand[i]);
+            console.log(hand[i].number);
 
-            if (this.playerHand[i.number] === 'J' || this.playerHand[i.number] === 'Q' || this.playerHand[i.number] === 'K') {
-                playerTotal = parseInt(playerTotal) + 10;
-                console.log(playerTotal)
+            if (hand[i].number === 'J' || hand[i].number === 'Q' || hand[i].number === 'K') {
+                total = parseInt(total) + 10;
 
-            } else if (this.playerHand[i.number] === 'A') {
-                if (playerTotal < 10) {
-                    playerTotal = parseInt(playerTotal) + 11;
-                    console.log(playerTotal)
+            } else if (hand[i].number === 'A') {
+                if (total < 10) {
+                    total = parseInt(total) + 11;
 
                 } else {
-                    playerTotal = parseInt(playerTotal) + 1;
-                    console.log(playerTotal)
+                    total = parseInt(total) + 1;
+                    console.log(total)
 
                 }
             } else {
-                playerTotal = parseInt(playerTotal) + parseInt(this.playerHand[i.number], 10);
-                console.log(playerTotal)
+                total = parseInt(total) + parseInt(hand[i].number, 10);
+                console.log(total)
 
             }
         }
-        $('#playerTotal').text(playerTotal)
+        return total
     }   
 }
 
@@ -114,14 +112,16 @@ class ButtonMethods {
             $('.card').remove()
             //add card div to player
             CardMethods.dealCard(BlackJackConstants.$playerArea, 'up', BlackJackConstants.playerHand);
-            BlackJackConstants.playerSum()
+            $('#playerTotal').text(BlackJackConstants.sum(BlackJackConstants.playerHand));
             //add card div to dealer facedown
             CardMethods.dealCard(BlackJackConstants.$dealerArea, 'down', BlackJackConstants.dealerHand);
+            // $('#dealerTotal').text(BlackJackConstants.sum(BlackJackConstants.dealerHand));
             //add card div to player
             CardMethods.dealCard(BlackJackConstants.$playerArea, 'up', BlackJackConstants.playerHand);
-            // BlackJackConstants.playerSum()
+            $('#playerTotal').text(BlackJackConstants.sum(BlackJackConstants.playerHand));
             //add card div to deal
             CardMethods.dealCard(BlackJackConstants.$dealerArea, 'up', BlackJackConstants.dealerHand);
+            // $('#dealerTotal').text(BlackJackConstants.sum(BlackJackConstants.dealerHand));
             currentGameState = gameStates[0];
             console.log(currentGameState);
         } else {
@@ -132,7 +132,7 @@ class ButtonMethods {
         if (currentGameState === 'Player\'s Turn') {
             // add card to player area
             CardMethods.dealCard(BlackJackConstants.$playerArea, 'up', BlackJackConstants.playerHand);
-            BlackJackConstants.playerSum()
+            $('#playerTotal').text(BlackJackConstants.sum(BlackJackConstants.playerHand));
         } else {
             console.log('It\'s not your turn.');
         }
