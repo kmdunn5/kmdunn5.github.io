@@ -48,8 +48,28 @@ class BlackJackConstants {
             }
         }
         return total
-    }   
+    }
+    static checkWinner = () => {
+        if (playerTotal > dealerTotal) {
+            console.log('Player Wins!');
+        } else if (dealerTotal > playerTotal) {
+            console.log('Dealer Wins!');
+        }
+    }
+    static checkBust = () => {
+        if (playerTotal > 21) {
+            console.log('Player Busted');
+        } else if (dealerTotal > 21) {
+            console.log('Dealer Busted!');
+        }
+    }
+    static checkBlackjack = () => {
+        if (BlackJackConstants.playerHand.length === 2 && playerTotal === 21) {
+            console.log('Jack Black! I mean Blackjack! Player wins!');
+        }
+    }
 }
+
 
 //=====================//
 //====Card Methods=====//
@@ -118,17 +138,19 @@ class ButtonMethods {
             //=======add card div to player
 
             CardMethods.dealCard(BlackJackConstants.$playerArea, 'up', BlackJackConstants.playerHand);
-            $('#playerTotal').text(BlackJackConstants.sum(BlackJackConstants.playerHand));
+            playerTotal = BlackJackConstants.sum(BlackJackConstants.playerHand);
+            $('#playerTotal').text(playerTotal);
             
             //======add card div to dealer facedown
 
             CardMethods.dealCard(BlackJackConstants.$dealerArea, 'down', BlackJackConstants.dealerHand);
-            // $('#dealerTotal').text(BlackJackConstants.sum(BlackJackConstants.dealerHand));
+            dealerTotal = BlackJackConstants.sum(BlackJackConstants.dealerHand);
 
             //=====add card div to player
 
             CardMethods.dealCard(BlackJackConstants.$playerArea, 'up', BlackJackConstants.playerHand);
-            $('#playerTotal').text(BlackJackConstants.sum(BlackJackConstants.playerHand));
+            playerTotal = BlackJackConstants.sum(BlackJackConstants.playerHand);
+            $('#playerTotal').text(playerTotal);
             
             //========add card div to deal
 
@@ -146,7 +168,8 @@ class ButtonMethods {
             //========add card to player area
             
             CardMethods.dealCard(BlackJackConstants.$playerArea, 'up', BlackJackConstants.playerHand);
-            $('#playerTotal').text(BlackJackConstants.sum(BlackJackConstants.playerHand));
+            playerTotal = BlackJackConstants.sum(BlackJackConstants.playerHand);
+            $('#playerTotal').text(playerTotal);
         } else {
             console.log('It\'s not your turn.');
         }
