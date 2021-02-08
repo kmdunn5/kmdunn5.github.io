@@ -23,6 +23,34 @@ class BlackJackConstants {
     static cardSuits = ['Hearts', 'Diamonds', 'Spades', 'Clubs'];
     static playerHand = [];
     static dealerHand = [];
+    static playerSum = () => {
+        playerTotal = 0;
+        for (let i = 0; i < this.playerHand.length; i++) {
+            console.log(this.playerHand[i]);
+            console.log(this.playerHand[i.number]);
+
+            if (this.playerHand[i.number] === 'J' || this.playerHand[i.number] === 'Q' || this.playerHand[i.number] === 'K') {
+                playerTotal = parseInt(playerTotal) + 10;
+                console.log(playerTotal)
+
+            } else if (this.playerHand[i.number] === 'A') {
+                if (playerTotal < 10) {
+                    playerTotal = parseInt(playerTotal) + 11;
+                    console.log(playerTotal)
+
+                } else {
+                    playerTotal = parseInt(playerTotal) + 1;
+                    console.log(playerTotal)
+
+                }
+            } else {
+                playerTotal = parseInt(playerTotal) + parseInt(this.playerHand[i.number], 10);
+                console.log(playerTotal)
+
+            }
+        }
+        $('#playerTotal').text(playerTotal)
+    }   
 }
 
 //=====================//
@@ -86,15 +114,16 @@ class ButtonMethods {
             $('.card').remove()
             //add card div to player
             CardMethods.dealCard(BlackJackConstants.$playerArea, 'up', BlackJackConstants.playerHand);
+            BlackJackConstants.playerSum()
             //add card div to dealer facedown
             CardMethods.dealCard(BlackJackConstants.$dealerArea, 'down', BlackJackConstants.dealerHand);
             //add card div to player
             CardMethods.dealCard(BlackJackConstants.$playerArea, 'up', BlackJackConstants.playerHand);
+            // BlackJackConstants.playerSum()
             //add card div to deal
             CardMethods.dealCard(BlackJackConstants.$dealerArea, 'up', BlackJackConstants.dealerHand);
             currentGameState = gameStates[0];
             console.log(currentGameState);
-            console.log(BlackJackConstants.playerHand, BlackJackConstants.dealerHand);
         } else {
             console.log('The game is in progress. Please finish the hand');
         }
@@ -103,7 +132,7 @@ class ButtonMethods {
         if (currentGameState === 'Player\'s Turn') {
             // add card to player area
             CardMethods.dealCard(BlackJackConstants.$playerArea, 'up', BlackJackConstants.playerHand);
-            console.log(BlackJackConstants.playerHand, BlackJackConstants.dealerHand);
+            BlackJackConstants.playerSum()
         } else {
             console.log('It\'s not your turn.');
         }
@@ -138,3 +167,5 @@ BlackJackConstants.$standButton.click(ButtonMethods.stand);
 // when dealing a card, create a new card object and push it into the proper hand array
 //      to accomplish this, I have to make the random number function return the number instead of the index....
 // make a new function that creates cards, calling each randomNumber and randomSuit as parameters, which will then fill the text, and the object
+
+// Maybe make the sums 1 variable, and just run a sum function each time with the correct hand parameter, return the number, then have a separate function that makes the text of the correct span the returned function number.
