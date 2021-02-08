@@ -109,7 +109,9 @@ class ButtonMethods {
     static deal = () => {
         if (currentGameState === 'Game End' || currentGameState === '') {
             //remove card divs
-            $('.card').remove()
+            $('.card').remove();
+            BlackJackConstants.playerHand.splice(0, BlackJackConstants.playerHand.length);
+            BlackJackConstants.dealerHand.splice(0, BlackJackConstants.dealerHand.length);
             //add card div to player
             CardMethods.dealCard(BlackJackConstants.$playerArea, 'up', BlackJackConstants.playerHand);
             $('#playerTotal').text(BlackJackConstants.sum(BlackJackConstants.playerHand));
@@ -169,3 +171,7 @@ BlackJackConstants.$standButton.click(ButtonMethods.stand);
 // make a new function that creates cards, calling each randomNumber and randomSuit as parameters, which will then fill the text, and the object
 
 // Maybe make the sums 1 variable, and just run a sum function each time with the correct hand parameter, return the number, then have a separate function that makes the text of the correct span the returned function number.
+
+// Shuffling the deck:
+// Set a for loop within a for loop to iterate over the suit array and then number array for each suit
+// 
