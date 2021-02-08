@@ -26,8 +26,6 @@ class BlackJackConstants {
     static sum = (hand) => {
         let total = 0;
         for (let i = 0; i < hand.length; i++) {
-            console.log(hand[i]);
-            console.log(hand[i].number);
 
             if (hand[i].number === 'J' || hand[i].number === 'Q' || hand[i].number === 'K') {
                 total = parseInt(total) + 10;
@@ -38,13 +36,10 @@ class BlackJackConstants {
 
                 } else {
                     total = parseInt(total) + 1;
-                    console.log(total)
-
                 }
+
             } else {
                 total = parseInt(total) + parseInt(hand[i].number, 10);
-                console.log(total)
-
             }
         }
         return total
@@ -61,11 +56,6 @@ class BlackJackConstants {
             console.log('Player Busted');
         } else if (dealerTotal > 21) {
             console.log('Dealer Busted!');
-        }
-    }
-    static checkBlackjack = () => {
-        if (BlackJackConstants.playerHand.length === 2 && playerTotal === 21) {
-            console.log('Jack Black! I mean Blackjack! Player wins!');
         }
     }
 }
@@ -158,6 +148,11 @@ class ButtonMethods {
             // $('#dealerTotal').text(BlackJackConstants.sum(BlackJackConstants.dealerHand));
             currentGameState = gameStates[0];
             console.log(currentGameState);
+            if (playerTotal === 21) {
+                console.log('Jack Black! I mean Blackjack! Player wins!');
+                currentGameState = gameStates[2];
+                console.log(currentGameState)
+            }
         } else {
             console.log('The game is in progress. Please finish the hand');
         }
