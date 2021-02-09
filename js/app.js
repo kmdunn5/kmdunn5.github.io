@@ -19,6 +19,7 @@ class BlackJackConstants {
     static $dealButton = $('#deal');
     static $hitButton = $('#hit');
     static $standButton = $('#stand');
+    static $readOut = $('#readOut');
     static cardNumbers = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'];
     static cardSuits = ['Hearts', 'Diamonds', 'Spades', 'Clubs'];
     static playerHand = [];
@@ -53,21 +54,21 @@ class BlackJackMethods {
     static checkWinner = () => {
         if (currentGameState !== gameStates[2]) {
             if (playerTotal > dealerTotal) {
-                console.log('Player Wins!');
+                BlackJackConstants.$readOut.text('Player Wins!');
             } else if (dealerTotal > playerTotal) {
-                console.log('Dealer Wins!');
+                BlackJackConstants.$readOut.text('Dealer Wins!');
             } else {
-                console.log('You both have the same number, it\'s a push!')
+                BlackJackConstants.$readOut.text('You both have the same number, it\'s a push!')
             }
         }
     }
     static checkBust = () => {
         if (playerTotal > 21) {
             currentGameState = gameStates[2]
-            console.log('Player Busted');
+            BlackJackConstants.$readOut.text('Player Busted');
         } else if (dealerTotal > 21) {
             currentGameState = gameStates[2]
-            console.log('Dealer Busted!');
+            BlackJackConstants.$readOut.text('Dealer Busted!');
         }
     }
 }
@@ -124,7 +125,7 @@ const dealerTurn = () => {
     BlackJackConstants.dealerHand.push(newCard);
     $newDiv.addClass(`${num} ${suit} ${newCard.face}`);
     BlackJackConstants.$dealerArea.prepend($newDiv);
-    dealerTotal = BlackJackMethods.sum(BlackJackConstants.dealerHand)
+    dealerTotal = BlackJackMethods.sum(BlackJackConstants.dealerHand);
     $('#dealerTotal').text(dealerTotal);
     while (dealerTotal < 16) {
         CardMethods.dealCard(BlackJackConstants.$dealerArea, 'up', BlackJackConstants.dealerHand);
@@ -162,7 +163,7 @@ class ButtonMethods {
             
             //======add card div to dealer facedown
 
-            BlackJackConstants.$dealerArea.append($('<div class="card down">'))
+            BlackJackConstants.$dealerArea.append($('<div class="card down">'));
             dealerTotal = BlackJackMethods.sum(BlackJackConstants.dealerHand);
 
             //=====add card div to player
@@ -182,12 +183,12 @@ class ButtonMethods {
             currentGameState = gameStates[0];
             console.log(currentGameState);
             if (playerTotal === 21) {
-                console.log('Jack Black! I mean Blackjack! Player wins!');
+                BlackJackConstants.$readOut.text('Jack Black! I mean Blackjack! Player wins!');
                 currentGameState = gameStates[2];
-                console.log(currentGameState);
+                BlackJackConstants.$readOut.text(currentGameState);
             }
         } else {
-            console.log('The game is in progress. Please finish the hand');
+            alert('The game is in progress. Please finish the hand');
         }
     }
     static hit = () => {
@@ -200,7 +201,7 @@ class ButtonMethods {
             $('#playerTotal').text(playerTotal);
             BlackJackMethods.checkBust();
         } else {
-            console.log('It\'s not your turn.');
+            alert('It\'s not your turn.');
         }
     }
     static stand = () => {
@@ -209,7 +210,7 @@ class ButtonMethods {
             //=======set game state to dealer turn
             
             currentGameState = gameStates[1];
-            console.log(currentGameState);
+            BlackJackConstants.$readOut.text(currentGameState);
             $('.down').remove();
             dealerTurn();
         }
