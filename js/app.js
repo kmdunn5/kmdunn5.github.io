@@ -213,6 +213,8 @@ class ButtonMethods {
             BlackJackConstants.$readOut.text(currentGameState);
             $('.down').remove();
             dealerTurn();
+        } else {
+            alert('Please deal a new hand.');
         }
     }
 }
