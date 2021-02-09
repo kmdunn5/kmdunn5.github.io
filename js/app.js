@@ -115,6 +115,13 @@ class Card {
 //=====================//
 
 const dealerTurn = () => {
+    let $newDiv = $('<div>').addClass('card');
+    let num = CardMethods.cardNumber();
+    let suit = CardMethods.cardSuit();
+    let newCard = CardMethods.createCard(num, suit, 'up');
+    BlackJackConstants.dealerHand.push(newCard);
+    $newDiv.addClass(`${num} ${suit} ${newCard.face}`);
+    BlackJackConstants.$dealerArea.prepend($newDiv);
     dealerTotal = BlackJackConstants.sum(BlackJackConstants.dealerHand)
     $('#dealerTotal').text(dealerTotal);
     while (dealerTotal < 16) {
@@ -201,7 +208,7 @@ class ButtonMethods {
             
             currentGameState = gameStates[1];
             console.log(currentGameState);
-            $('.down').toggleClass('down');
+            $('.down').remove();
             dealerTurn();
         }
     }

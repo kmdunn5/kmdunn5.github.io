@@ -5,8 +5,9 @@ body {
 section {
     background-color: steelblue;
     height: 400px;
-    width: 400px;
+    width: 70%;
     border: 3px solid black;
+    /* overflow: auto; */
 }
 
 span {
@@ -18,6 +19,7 @@ span {
     margin-top: 40px;
     background-color: fuchsia;
     border: 1px solid orange;
+    /* overflow: auto; */
 }
 
 .card {
@@ -27,6 +29,7 @@ span {
     border: 2px solid darkslategray;
     display: inline-block;
     border-radius: 10px;
+    overflow: auto;
 }
 
 .Spades.\32 {
@@ -299,3 +302,7 @@ span {
     width: max-content;
 }
 
+
+
+
+/* resize the cards if they are too big for the container */
