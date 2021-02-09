@@ -7,8 +7,21 @@ const gameStates = ['Player\'s Turn', 'Dealer\'s Turn', 'Game End'];
 let currentGameState = '';
 let playerTotal = 0;
 let dealerTotal = 0;
+let winner = ''
+let playerChips = 20;
+let currentBet = 0;
+const $chipAmount = $('#chipAmount');
+const $bet = $('#submit');
+const $chipsTotal = $('#chipsTotal');
+$chipsTotal.text(playerChips);
 
-
+const evaluateBet = () => {
+    if (winner === 'player') {
+        playerChips = playerChips + (currentBet * 2);
+        $chipsTotal.text(playerChips);
+        currentBet = 0
+    }
+}
 //=====================//
 //====Game Constants===//
 //=====================//
@@ -55,8 +68,12 @@ class BlackJackMethods {
         if (currentGameState !== gameStates[2]) {
             if (playerTotal > dealerTotal) {
                 BlackJackConstants.$readOut.text('Player Wins!');
+                winner = 'player';
+                evaluateBet();
             } else if (dealerTotal > playerTotal) {
                 BlackJackConstants.$readOut.text('Dealer Wins!');
+                winner = 'dealer';
+                evaluateBet();
             } else {
                 BlackJackConstants.$readOut.text('You both have the same number, it\'s a push!')
             }
@@ -66,9 +83,13 @@ class BlackJackMethods {
         if (playerTotal > 21) {
             currentGameState = gameStates[2]
             BlackJackConstants.$readOut.text('Player Busted');
+            winner = 'player';
+            evaluateBet();
         } else if (dealerTotal > 21) {
             currentGameState = gameStates[2]
             BlackJackConstants.$readOut.text('Dealer Busted!');
+            winner = 'dealer';
+            evaluateBet();
         }
     }
 }
@@ -148,6 +169,7 @@ class ButtonMethods {
             
             //========remove card divs
             
+            winner = '';
             $('.card').remove();
             BlackJackConstants.playerHand.splice(0, BlackJackConstants.playerHand.length);
             BlackJackConstants.dealerHand.splice(0, BlackJackConstants.dealerHand.length);
@@ -184,6 +206,8 @@ class ButtonMethods {
             BlackJackConstants.$readOut.text(currentGameState);
             if (playerTotal === 21) {
                 BlackJackConstants.$readOut.text('Jack Black! I mean Blackjack! Player wins!');
+                winner = 'player';
+                evaluateBet();
                 currentGameState = gameStates[2];
                 BlackJackConstants.$readOut.text(currentGameState);
             }
@@ -228,7 +252,15 @@ BlackJackConstants.$dealButton.click(ButtonMethods.deal);
 BlackJackConstants.$hitButton.click(ButtonMethods.hit);
 BlackJackConstants.$standButton.click(ButtonMethods.stand);
 
-
+$bet.click(() => {
+    currentBet = parseInt($('input').val());
+    if (currentBet <= playerChips) {
+        playerChips -= currentBet;
+        $chipsTotal.text(playerChips);
+    } else {
+        alert('You don\'t have enough chips, bet again please.');
+    }
+})
 
 
 
@@ -245,3 +277,18 @@ BlackJackConstants.$standButton.click(ButtonMethods.stand);
 // Shuffling the deck:
 // Set a for loop within a for loop to iterate over the suit array and then number array for each suit
 // 
+
+
+// betting ideas
+// set a varible to the bet amount with button click
+// remove that amount on button click
+// evalute a win after the game, adding bet amount * 2 or doing nothing. 
+// reset value immediatly after changing chip amount
+
+
+
+
+
+
+
+

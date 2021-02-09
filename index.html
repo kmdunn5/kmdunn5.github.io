@@ -12,6 +12,10 @@
 <body>
     <h1>Time for Black-Jack-Black!</h1>
     <h2 id="readOut">Ready to Play!</h2>
+    <div id="bet">
+        <input type="text" placeholder="Chips to Bet">
+        <button id="submit">Submit Bet</button>
+    </div>
     <section id="buttons">
         <button id="deal">Deal</button>
         <button id="hit">Hit</button>
@@ -20,6 +24,7 @@
     </section>
     <section>
         <h3>Player's Cards</h3>
+        <h4>Chips: <span id="chipsTotal"></span></h4>
         <h4>Player Total: <span id="playerTotal"></span></h4>
         <div class="cardContainer" id="playerArea">
             <div class="card down"></div>
