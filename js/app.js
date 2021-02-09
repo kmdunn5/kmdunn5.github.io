@@ -144,17 +144,16 @@ class ButtonMethods {
             playerTotal = BlackJackConstants.sum(BlackJackConstants.playerHand);
             $('#playerTotal').text(playerTotal);
             dealerTotal = BlackJackConstants.sum(BlackJackConstants.dealerHand);
-            $('#dealerTotal').text('');
+            $('#dealerTotal').text(dealerTotal);
             
             //=======add card div to player
 
             CardMethods.dealCard(BlackJackConstants.$playerArea, 'up', BlackJackConstants.playerHand);
             playerTotal = BlackJackConstants.sum(BlackJackConstants.playerHand);
-            $('#playerTotal').text(playerTotal);
             
             //======add card div to dealer facedown
 
-            CardMethods.dealCard(BlackJackConstants.$dealerArea, 'down', BlackJackConstants.dealerHand);
+            BlackJackConstants.$dealerArea.append($('<div class="card down">'))
             dealerTotal = BlackJackConstants.sum(BlackJackConstants.dealerHand);
 
             //=====add card div to player
@@ -167,7 +166,8 @@ class ButtonMethods {
 
             CardMethods.dealCard(BlackJackConstants.$dealerArea, 'up', BlackJackConstants.dealerHand);
             dealerTotal = BlackJackConstants.sum(BlackJackConstants.dealerHand);
-
+            $('#dealerTotal').text(dealerTotal);
+            
             // 
 
             currentGameState = gameStates[0];

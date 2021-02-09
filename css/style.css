@@ -144,12 +144,12 @@ span {
     background-size: cover;
 }   
 
-.Hearts.J {
+.Hearts.Q {
     background-image: url(../img/Hearts/Q\ of\ Hearts.jpeg);
     background-size: cover;
 }
 
-.Hearts.J {
+.Hearts.K {
     background-image: url(../img/Hearts/K\ of\ Hearts.jpeg);
     background-size: cover;
 }
@@ -289,7 +289,7 @@ span {
 }
 
 .down {
-    background-image: url("../img/Jack_Black_Basic.jpeg");
+    background-image: url(../img/Jack_Black_Basic.jpeg);
     background-size: cover;
 }
 
