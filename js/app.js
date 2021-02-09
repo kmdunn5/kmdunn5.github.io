@@ -23,6 +23,8 @@ class BlackJackConstants {
     static cardSuits = ['Hearts', 'Diamonds', 'Spades', 'Clubs'];
     static playerHand = [];
     static dealerHand = [];
+}
+class BlackJackMethods {
     static sum = (hand) => {
         let total = 0;
         let numberOfAces = 0;
@@ -122,15 +124,15 @@ const dealerTurn = () => {
     BlackJackConstants.dealerHand.push(newCard);
     $newDiv.addClass(`${num} ${suit} ${newCard.face}`);
     BlackJackConstants.$dealerArea.prepend($newDiv);
-    dealerTotal = BlackJackConstants.sum(BlackJackConstants.dealerHand)
+    dealerTotal = BlackJackMethods.sum(BlackJackConstants.dealerHand)
     $('#dealerTotal').text(dealerTotal);
     while (dealerTotal < 16) {
         CardMethods.dealCard(BlackJackConstants.$dealerArea, 'up', BlackJackConstants.dealerHand);
-        dealerTotal = BlackJackConstants.sum(BlackJackConstants.dealerHand);
+        dealerTotal = BlackJackMethods.sum(BlackJackConstants.dealerHand);
         $('#dealerTotal').text(dealerTotal);
     }
-    BlackJackConstants.checkBust();
-    BlackJackConstants.checkWinner();
+    BlackJackMethods.checkBust();
+    BlackJackMethods.checkWinner();
     currentGameState = gameStates[2];
 }
 
@@ -148,31 +150,31 @@ class ButtonMethods {
             $('.card').remove();
             BlackJackConstants.playerHand.splice(0, BlackJackConstants.playerHand.length);
             BlackJackConstants.dealerHand.splice(0, BlackJackConstants.dealerHand.length);
-            playerTotal = BlackJackConstants.sum(BlackJackConstants.playerHand);
+            playerTotal = BlackJackMethods.sum(BlackJackConstants.playerHand);
             $('#playerTotal').text(playerTotal);
-            dealerTotal = BlackJackConstants.sum(BlackJackConstants.dealerHand);
+            dealerTotal = BlackJackMethods.sum(BlackJackConstants.dealerHand);
             $('#dealerTotal').text(dealerTotal);
             
             //=======add card div to player
 
             CardMethods.dealCard(BlackJackConstants.$playerArea, 'up', BlackJackConstants.playerHand);
-            playerTotal = BlackJackConstants.sum(BlackJackConstants.playerHand);
+            playerTotal = BlackJackMethods.sum(BlackJackConstants.playerHand);
             
             //======add card div to dealer facedown
 
             BlackJackConstants.$dealerArea.append($('<div class="card down">'))
-            dealerTotal = BlackJackConstants.sum(BlackJackConstants.dealerHand);
+            dealerTotal = BlackJackMethods.sum(BlackJackConstants.dealerHand);
 
             //=====add card div to player
 
             CardMethods.dealCard(BlackJackConstants.$playerArea, 'up', BlackJackConstants.playerHand);
-            playerTotal = BlackJackConstants.sum(BlackJackConstants.playerHand);
+            playerTotal = BlackJackMethods.sum(BlackJackConstants.playerHand);
             $('#playerTotal').text(playerTotal);
             
             //========add card div to deal
 
             CardMethods.dealCard(BlackJackConstants.$dealerArea, 'up', BlackJackConstants.dealerHand);
-            dealerTotal = BlackJackConstants.sum(BlackJackConstants.dealerHand);
+            dealerTotal = BlackJackMethods.sum(BlackJackConstants.dealerHand);
             $('#dealerTotal').text(dealerTotal);
             
             // 
@@ -194,9 +196,9 @@ class ButtonMethods {
             //========add card to player area
             
             CardMethods.dealCard(BlackJackConstants.$playerArea, 'up', BlackJackConstants.playerHand);
-            playerTotal = BlackJackConstants.sum(BlackJackConstants.playerHand);
+            playerTotal = BlackJackMethods.sum(BlackJackConstants.playerHand);
             $('#playerTotal').text(playerTotal);
-            BlackJackConstants.checkBust();
+            BlackJackMethods.checkBust();
         } else {
             console.log('It\'s not your turn.');
         }
