@@ -96,7 +96,6 @@ class CardMethods {
         let newCard = this.createCard(num, suit, face);
         hand.push(newCard);
         $newDiv.addClass(`${num} ${suit} ${newCard.face}`);
-        $newDiv.text(`${num} of ${suit}`);
         area.append($newDiv);
     }
 }

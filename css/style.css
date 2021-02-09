@@ -22,68 +22,275 @@ span {
 
 .card {
     background-color: papayawhip;
-    height: 125px;
+    height: 150px;
     width: 100px;
     border: 2px solid darkslategray;
     display: inline-block;
+    border-radius: 10px;
 }
 
-.\32 {
-    background-color: cornsilk;
+.Spades.\32 {
+    background-image: url(../img/Spades/2\ of\ Spades.jpeg);
+    background-size: cover;
 }
 
-.\33 {
-    background-color: cornsilk;
+.Spades.\33 {
+    background-image: url(../img/Spades/3\ of\ Spades.jpeg);
+    background-size: cover;
 }
 
-.\34 {
-    background-color: cornsilk;
+.Spades.\34 {
+    background-image: url(../img/Spades/4\ of\ Spades.jpeg);
+    background-size: cover;
 }
 
-.\35 {
-    background-color: cornsilk;
+.Spades.\35 {
+    background-image: url(../img/Spades/5\ of\ Spades.jpeg);
+    background-size: cover;
 }
 
-.\36 {
-    background-color: cornsilk;
+.Spades.\36 {
+    background-image: url(../img/Spades/6\ of\ Spades.jpeg);
+    background-size: cover;
 }
 
-.\37 {
-    background-color: cornsilk;
+.Spades.\37 {
+    background-image: url(../img/Spades/7\ of\ Spades.jpeg);
+    background-size: cover;
 }
 
-.\38 {
-    background-color: cornsilk;
+.Spades.\38 {
+    background-image: url(../img/Spades/8\ of\ Spades.jpeg);
+    background-size: cover;
 }
 
-.\39 {
-    background-color: cornsilk;
+.Spades.\39 {
+    background-image: url(../img/Spades/9\ of\ Spades.jpeg);
+    background-size: cover;
 }
 
-.\31 0 {
-    background-color: peru;
+.Spades.\31 0 {
+    background-image: url(../img/Spades/10\ of\ Spades.jpeg);
+    background-size: cover;
 }
 
-.Hearts {
-    color: crimson;
+.Spades.J {
+    background-image: url(../img/Spades/J\ of\ Spades.jpeg);
+    background-size: cover;
 }
 
-.Diamonds {
-    color: firebrick;
+.Spades.Q {
+    background-image: url(../img/Spades/Q\ of\ Spades.jpeg);
+    background-size: cover;
 }
 
-.Spades {
-    color: dimgray;
+.Spades.K {
+    background-image: url(../img/Spades/K\ of\ Spades.jpeg);
+    background-size: cover;
 }
 
-.Clubs {
-    color: lightslategray;
+.Spades.A {
+    background-image: url(../img/Spades/A\ of\ Spades.jpeg);
+    background-size: cover;
+}
+
+.Hearts.\32 {
+    background-image: url(../img/Hearts/2\ of\ Hearts.jpeg);
+    background-size: cover;
+}
+
+.Hearts.\33 {
+    background-image: url(../img/Hearts/3\ of\ Hearts.jpeg);
+    background-size: cover;
+}
+
+.Hearts.\34 {
+    background-image: url(../img/Hearts/4\ of\ Hearts.jpeg);
+    background-size: cover;
+}
+
+.Hearts.\35 {
+    background-image: url(../img/Hearts/5\ of\ Hearts.jpeg);
+    background-size: cover;
+}
+
+.Hearts.\36 {
+    background-image: url(../img/Hearts/6\ of\ Hearts.jpeg);
+    background-size: cover;
+}
+
+.Hearts.\37 {
+    background-image: url(../img/Hearts/7\ of\ Hearts.jpeg);
+    background-size: cover;
+}
+
+.Hearts.\38 {
+    background-image: url(../img/Hearts/8\ of\ Hearts.jpeg);
+    background-size: cover;
+}
+
+.Hearts.\39 {
+    background-image: url(../img/Hearts/9\ of\ Hearts.jpeg);
+    background-size: cover;
+}
+
+.Hearts.\31 0 {
+    background-image: url(../img/Hearts/10\ of\ Hearts.jpeg);
+    background-size: cover;
+}
+
+.Hearts.J {
+    background-image: url(../img/Hearts/J\ of\ Hearts.jpeg);
+    background-size: cover;
+}   
+
+.Hearts.J {
+    background-image: url(../img/Hearts/Q\ of\ Hearts.jpeg);
+    background-size: cover;
+}
+
+.Hearts.J {
+    background-image: url(../img/Hearts/K\ of\ Hearts.jpeg);
+    background-size: cover;
+}
+
+.Hearts.A {
+    background-image: url(../img/Hearts/A\ of\ Hearts.jpeg);
+    background-size: cover;
+}
+
+.Diamonds.\32 {
+    background-image: url(../img/Diamonds/2\ of\ Diamonds.jpeg);
+    background-size: cover;
+}
+
+.Diamonds.\33 {
+    background-image: url(../img/Diamonds/3\ of\ Diamonds.jpeg);
+    background-size: cover;
+}
+
+.Diamonds.\34 {
+    background-image: url(../img/Diamonds/4\ of\ Diamonds.jpeg);
+    background-size: cover;
+}
+
+.Diamonds.\35 {
+    background-image: url(../img/Diamonds/5\ of\ Diamonds.jpeg);
+    background-size: cover;
+}
+.Diamonds.\36 {
+    background-image: url(../img/Diamonds/6\ of\ Diamonds.jpeg);
+    background-size: cover;
+}
+
+.Diamonds.\37 {
+    background-image: url(../img/Diamonds/7\ of\ Diamonds.jpeg);
+    background-size: cover;
+}
+
+.Diamonds.\38 {
+    background-image: url(../img/Diamonds/8\ of\ Diamonds.jpeg);
+    background-size: cover;
+}
+
+.Diamonds.\39 {
+    background-image: url(../img/Diamonds/9\ of\ Diamonds.jpeg);
+    background-size: cover;
+}
+
+.Diamonds.\31 0 {
+    background-image: url(../img/Diamonds/10\ of\ Diamonds.jpeg);
+    background-size: cover;
+}
+
+.Diamonds.J {
+    background-image: url(../img/Diamonds/J\ of\ Diamonds.jpeg);
+    background-size: cover;
+}
+
+.Diamonds.Q {
+    background-image: url(../img/Diamonds/Q\ of\ Diamonds.jpeg);
+    background-size: cover;
+}
+
+.Diamonds.K {
+    background-image: url(../img/Diamonds/K\ of\ Diamonds.jpeg);
+    background-size: cover;
+}
+
+.Diamonds.A {
+    background-image: url(../img/Diamonds/A\ of\ Diamonds.jpeg);
+    background-size: cover;
+}
+
+.Clubs.\32 {
+    background-image: url(../img/Clubs/2\ of\ Clubs.jpeg);
+    background-size: cover;
+}
+
+.Clubs.\33 {
+    background-image: url(../img/Clubs/3\ of\ Clubs.jpeg);
+    background-size: cover;
+}
+
+.Clubs.\34 {
+    background-image: url(../img/Clubs/4\ of\ Clubs.jpeg);
+    background-size: cover;
+}
+
+.Clubs.\35 {
+    background-image: url(../img/Clubs/5\ of\ Clubs.jpeg);
+    background-size: cover;
+}
+
+.Clubs.\36 {
+    background-image: url(../img/Clubs/6\ of\ Clubs.jpeg);
+    background-size: cover;
+}
+
+.Clubs.\37 {
+    background-image: url(../img/Clubs/7\ of\ Clubs.jpeg);
+    background-size: cover;
+}
+
+.Clubs.\38 {
+    background-image: url(../img/Clubs/8\ of\ Clubs.jpeg);
+    background-size: cover;
+}
+
+.Clubs.\39 {
+    background-image: url(../img/Clubs/9\ of\ Clubs.jpeg);
+    background-size: cover;
+}
+
+.Clubs.\31 0 {
+    background-image: url(../img/Clubs/10\ of\ Clubs.jpeg);
+    background-size: cover;
+}
+
+.Clubs.J {
+    background-image: url(../img/Clubs/J\ of\ Clubs.jpeg);
+    background-size: cover;
+}
+
+.Clubs.Q {
+    background-image: url(../img/Clubs/Q\ of\ Clubs.jpeg);
+    background-size: cover;
+}
+
+.Clubs.K {
+    background-image: url(../img/Clubs/K\ of\ Clubs.jpeg);
+    background-size: cover;
+}
+
+.Clubs.A {
+    background-image: url(../img/Clubs/A\ of\ Clubs.jpeg);
+    background-size: cover;
 }
 
 .down {
     background-image: url("../img/Jack_Black_Basic.jpeg");
     background-size: cover;
-    color: transparent;
 }
 
 #buttons {
