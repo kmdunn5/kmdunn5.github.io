@@ -181,7 +181,7 @@ class ButtonMethods {
             // 
 
             currentGameState = gameStates[0];
-            console.log(currentGameState);
+            BlackJackConstants.$readOut.text(currentGameState);
             if (playerTotal === 21) {
                 BlackJackConstants.$readOut.text('Jack Black! I mean Blackjack! Player wins!');
                 currentGameState = gameStates[2];
