@@ -1,11 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap');
+
 body {
     background-color: rgb(12, 83, 40);
     color: antiquewhite;
+    font-family: 'Nunito', sans-serif;
 }
 
 section {
     /* background-color: steelblue; */
-    height: 400px;
+    height: 300px;
     width: 70%;
     /* border: 3px solid black; */
     /* overflow: auto; */
@@ -24,7 +27,6 @@ span {
 }
 
 .card {
-    background-color: papayawhip;
     height: 150px;
     width: 100px;
     border: 1px solid whitesmoke;

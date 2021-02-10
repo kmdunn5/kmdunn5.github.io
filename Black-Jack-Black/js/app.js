@@ -148,7 +148,7 @@ const dealerTurn = () => {
     BlackJackConstants.$dealerArea.prepend($newDiv);
     dealerTotal = BlackJackMethods.sum(BlackJackConstants.dealerHand);
     $('#dealerTotal').text(dealerTotal);
-    while (dealerTotal < 16) {
+    while (dealerTotal < 17) {
         CardMethods.dealCard(BlackJackConstants.$dealerArea, 'up', BlackJackConstants.dealerHand);
         dealerTotal = BlackJackMethods.sum(BlackJackConstants.dealerHand);
         $('#dealerTotal').text(dealerTotal);

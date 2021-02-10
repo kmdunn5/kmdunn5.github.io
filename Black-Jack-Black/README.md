@@ -1,6 +1,23 @@
 # Black-Jack-Black
 Black Jack game
 
+### Rules:  
+
+The goal of the game is to get the total of your cards as close to 21 as possible, without going over.  
+To do this, you have the opportunity to add cards to your hand by requesting a "hit".  
+Each card is worth the value that is shown on it's face. All cards with an image (King, Queen, Jack) are worth 10. Aces can be worth either 11 or 1.  
+    The game will automatically evaluate an Ace to be the number that best suits the current situation. If your your other cards total under 11, it will assume you want your Ace to be 11 points, if your other cards total 11 or higher, it will assume you want your Ace to be worth 1.  
+If your total ever exceeds 21, you will bust, which will lose you the game.  
+When you decide that you no longer want to "hit", you must choose to "stand", so that the game knows that you are done with your turn.  
+After you have chosen to "stand" the dealer will take their turn. The dealer will always stand if their total is above 16.  
+When the cards are dealt, the dealer's first card will be dealt face down. Their second card will be dealt face up so that you can see what it is.  
+When your turn is done, the dealer will show all of their cards, and "hit" until their total is above 16.  
+
+To play, you need to deal the cards. Click the deal button to start a hand. You can choose to bet on this hand or play a hand without any consequence.  
+    In order to play without betting, all you need to do is click the deal button.  
+    In order to play with betting, you only need to input a number in the betting field, and then clicking the submit button.  
+
+
 Psuedocode:  
 
 HTML ideas:  
