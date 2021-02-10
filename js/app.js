@@ -279,14 +279,23 @@ $bet.click(() => {
 // 
 
 
-// betting ideas
-// set a varible to the bet amount with button click
-// remove that amount on button click
-// evalute a win after the game, adding bet amount * 2 or doing nothing. 
-// reset value immediatly after changing chip amount
+// Ideas for shuffling arrays of cards.
+
+
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+}
 
 
 
+// about modal ?
+
+
+// Things to do
+// reset chips input
 
 
 

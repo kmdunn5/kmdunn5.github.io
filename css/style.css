@@ -1,5 +1,6 @@
 body {
-    background-color: rgb(12, 83, 12);
+    background-color: rgb(12, 83, 40);
+    color: antiquewhite;
 }
 
 section {
@@ -16,9 +17,9 @@ span {
 
 .cardContainer {
     position: absolute;
-    margin-top: 40px;
-    background-color: fuchsia;
-    border: 1px solid orange;
+    margin-top: 10px;
+    /* background-color: fuchsia; */
+    /* border: 1px solid whitesmoke; */
     /* overflow: auto; */
 }
 
@@ -26,10 +27,11 @@ span {
     background-color: papayawhip;
     height: 150px;
     width: 100px;
-    border: 2px solid darkslategray;
+    border: 1px solid whitesmoke;
     display: inline-block;
     border-radius: 10px;
     overflow: auto;
+    box-shadow: 5px 10px black;
 }
 
 .Spades.\32 {
@@ -297,7 +299,7 @@ span {
 }
 
 #buttons {
-    background-color: forestgreen;
+    /* background-color: forestgreen; */
     height: max-content;
     width: max-content;
 }

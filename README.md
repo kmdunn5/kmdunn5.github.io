@@ -42,4 +42,5 @@ JS ideas
 
 
     Citations:
-    card styling ideas: https://www.youtube.com/watch?v=D2H5rMK5AI8&ab_channel=CodeWhisperer
+    card styling ideas: https://www.youtube.com/watch?v=D2H5rMK5AI8&ab_channel=CodeWhisperer  
+    array shuffle: https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array  
