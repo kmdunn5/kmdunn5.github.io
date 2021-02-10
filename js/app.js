@@ -83,12 +83,12 @@ class BlackJackMethods {
         if (playerTotal > 21) {
             currentGameState = gameStates[2]
             BlackJackConstants.$readOut.text('Player Busted');
-            winner = 'player';
+            winner = 'dealer';
             evaluateBet();
         } else if (dealerTotal > 21) {
             currentGameState = gameStates[2]
             BlackJackConstants.$readOut.text('Dealer Busted!');
-            winner = 'dealer';
+            winner = 'player';
             evaluateBet();
         }
     }
