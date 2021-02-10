@@ -45,13 +45,13 @@ class BlackJackMethods {
         for (let i = 0; i < hand.length; i++) {
 
             if (hand[i].number === 'J' || hand[i].number === 'Q' || hand[i].number === 'K') {
-                total = parseInt(total) + 10;
+                total = total + 10;
 
             } else if (hand[i].number === 'A') {
                 numberOfAces += 1
 
             } else {
-                total = parseInt(total) + parseInt(hand[i].number, 10);
+                total = total + parseInt(hand[i].number, 10);
             }
         }
         if (numberOfAces > 0) {
@@ -165,7 +165,7 @@ const dealerTurn = () => {
 
 class ButtonMethods {
     static deal = () => {
-        if (currentGameState === 'Game End' || currentGameState === '') {
+        if (currentGameState === gameStates[2] || currentGameState === '') {
             
             //========remove card divs
             
@@ -216,7 +216,7 @@ class ButtonMethods {
         }
     }
     static hit = () => {
-        if (currentGameState === 'Player\'s Turn') {
+        if (currentGameState === gameStates[0]) {
             
             //========add card to player area
             
@@ -229,7 +229,7 @@ class ButtonMethods {
         }
     }
     static stand = () => {
-        if (currentGameState === 'Player\'s Turn') {
+        if (currentGameState === gameStates[0]) {
             
             //=======set game state to dealer turn
             
