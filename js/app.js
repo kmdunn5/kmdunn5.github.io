@@ -293,6 +293,22 @@ function shuffleArray(array) {
 
 // about modal ?
 
+// const $aboutButton = $('#openModal');
+// const $modal = $('#modal');
+// const $closeButton = $('#close');
+
+// const openModal = () => {
+//   $modal.show();
+// }
+
+// const closeModal = () => {
+//   $modal.hide();
+// }
+
+// // setTimeout(openModal, 5000);
+
+// $aboutButton.click(openModal);
+// $closeButton.click(closeModal);
 
 // Things to do
 // reset chips input
