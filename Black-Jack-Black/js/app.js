@@ -5,7 +5,7 @@ console.log('Jack Black time!')
 //=====================//
 //======Game State=====//
 //=====================//
-const gameStates = ['Player\'s Turn', 'Dealer\'s Turn', 'Game End'];
+const gameStates = ['Your Turn', 'Dealer\'s Turn', 'Game End'];
 let currentGameState = '';
 let playerTotal = 0;
 let dealerTotal = 0;
@@ -22,6 +22,8 @@ const evaluateBet = () => {
         playerChips = playerChips + (currentBet * 2);
         $chipsTotal.text(playerChips);
         currentBet = 0
+    } else if (winner === 'push') {
+        playerChips += currentBet
     }
 }
 //=====================//
@@ -69,27 +71,28 @@ class BlackJackMethods {
     static checkWinner = () => {
         if (currentGameState !== gameStates[2]) {
             if (playerTotal > dealerTotal) {
-                BlackJackConstants.$readOut.text('Player Wins!');
+                BlackJackConstants.$readOut.text('You Win! Will you teach me your ways?');
                 winner = 'player';
                 evaluateBet();
             } else if (dealerTotal > playerTotal) {
-                BlackJackConstants.$readOut.text('Dealer Wins!');
+                BlackJackConstants.$readOut.text('Dealer Wins. Crapola!');
                 winner = 'dealer';
                 evaluateBet();
             } else {
                 BlackJackConstants.$readOut.text('You both have the same number, it\'s a push!')
+                winner = 'push';
             }
         }
     }
     static checkBust = () => {
         if (playerTotal > 21) {
             currentGameState = gameStates[2]
-            BlackJackConstants.$readOut.text('Player Busted');
+            BlackJackConstants.$readOut.text('Player Busted, Dealer Wins...I guess they don\'t know genius when they see it. ');
             winner = 'dealer';
             evaluateBet();
         } else if (dealerTotal > 21) {
             currentGameState = gameStates[2]
-            BlackJackConstants.$readOut.text('Dealer Busted!');
+            BlackJackConstants.$readOut.text('Dealer Busted! Player Wins! That\'s especially delicous.');
             winner = 'player';
             evaluateBet();
         }
@@ -188,20 +191,20 @@ class ButtonMethods {
             
             //======add card div to dealer facedown
 
-            setTimeout( () => {BlackJackConstants.$dealerArea.append($('<div class="card down">'));
-            dealerTotal = BlackJackMethods.sum(BlackJackConstants.dealerHand)}, 500);
+            BlackJackConstants.$dealerArea.append($('<div class="card down">'));
+            dealerTotal = BlackJackMethods.sum(BlackJackConstants.dealerHand);
 
             //=====add card div to player
 
-            setTimeout( () => {CardMethods.dealCard(BlackJackConstants.$playerArea, 'up', BlackJackConstants.playerHand);
+            CardMethods.dealCard(BlackJackConstants.$playerArea, 'up', BlackJackConstants.playerHand);
             playerTotal = BlackJackMethods.sum(BlackJackConstants.playerHand);
-            $('#playerTotal').text(playerTotal)}, 1000);
+            $('#playerTotal').text(playerTotal);
             
             //========add card div to deal
 
-            setTimeout( () => {CardMethods.dealCard(BlackJackConstants.$dealerArea, 'up', BlackJackConstants.dealerHand);
+            CardMethods.dealCard(BlackJackConstants.$dealerArea, 'up', BlackJackConstants.dealerHand);
             dealerTotal = BlackJackMethods.sum(BlackJackConstants.dealerHand);
-            $('#dealerTotal').text(dealerTotal)}, 1500);
+            $('#dealerTotal').text(dealerTotal);
             
             // 
 
@@ -260,11 +263,38 @@ $bet.click(() => {
     if (currentBet <= playerChips) {
         playerChips -= currentBet;
         $chipsTotal.text(playerChips);
-    } else {
+        BlackJackConstants.$readOut.text(`You've bet ${currentBet} chips. Good luck!`);
+    } else if (currentBet > playerChips) {
         alert('You don\'t have enough chips, bet again please.');
+    } else {
+        alert('You haven\'t bet yet, please enter a chip amount.')
     }
 })
 
+
+//=====================//
+//=====About Modal=====//
+//=====================//
+
+const $aboutButton = $('#about');
+const $modal = $('#modal');
+const $closeButton = $('#close');
+
+$aboutButton.click(() => {
+  $modal.show();
+});
+
+$closeButton.click(() => {
+  $modal.hide();
+});
+
+// $aboutButton.click(openModal// $closeButton.click(closeModal);
+
+
+
+//=====================//
+//========Notes========//
+//=====================//
 
 
 // Shuffling the deck:
@@ -286,27 +316,12 @@ function shuffleArray(array) {
 
 
 
-// about modal ?
 
-// const $aboutButton = $('#openModal');
-// const $modal = $('#modal');
-// const $closeButton = $('#close');
-
-// const openModal = () => {
-//   $modal.show();
-// }
-
-// const closeModal = () => {
-//   $modal.hide();
-// }
-
-// // setTimeout(openModal, 5000);
-
-// $aboutButton.click(openModal);
-// $closeButton.click(closeModal);
 
 // Things to do
 // reset chips input
+
+// setTimeout() to deal periodically...this broke everything and changed when things evaluated.
 
 
 

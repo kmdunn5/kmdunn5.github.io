@@ -10,19 +10,39 @@
     <title>Black-Jack-Black</title>
 </head>
 <body>
+    
+    <button class="modalButton" id="about">How to Play</button>
+    <div id="modal">
+        <div id="modalText">
+            <h2>How to play Blackjack</h2>
+                <p>The goal of the game is to get the total of your cards as close to 21 as possible, without going over.</p>
+                <p>To do this, you have the opportunity to add cards to your hand by requesting a "hit".</p>
+                <p>Each card is worth the value that is shown on it's face. All cards with an image (King, Queen, Jack) are worth 10. Aces can be worth either 11 or 1.</p>
+                <p>If your total ever exceeds 21, you will bust, which will lose you the game.</p>
+                <p>When you decide that you no longer want to "hit", you must choose to "stand", so that the dealer knows that you are done with your turn.</p>
+                <p>After you have chosen to "stand" the dealer will take their turn. The dealer will always stand if their total is above 16.</p>
+                <div id="modalButton">
+                    <button class="modalButton" id="close">Close</button>
+                </div>
+        </div>
+    </div>
+
+
     <h1>Time for Black-Jack-Black!</h1>
-    <h2 id="readOut">Ready to Play!</h2>
+    <h2 id="readOut">Ready to Play? Submit your chips to bet, and click deal to start!</h2>
+    
     <div id="bet">
         <input type="text" placeholder="Chips you're betting">
-        <button id="submit">Submit Bet</button>
+        <button class="buttons" id="submit">Submit Bet</button>
         <h4>Chips Available: <span id="chipsTotal"></span></h4>
     </div>
+    
     <section id="buttons">
-        <button id="deal">Deal</button>
-        <button id="hit">Hit</button>
-        <button id="stand">Stand</button>
-        <!-- <button id="reset">Reset</button> -->
+        <button class="buttons" id="deal">Deal</button>
+        <button class="buttons" id="hit">Hit</button>
+        <button class="buttons" id="stand">Stand</button>
     </section>
+    
     <section>
         <h3>Player's Cards</h3>
         <h4>Player Total: <span id="playerTotal"></span></h4>
@@ -30,6 +50,7 @@
             <div class="card down"></div>
         </div>
     </section>
+    
     <section>
         <h3>Dealer's Cards</h3>
         <h4>Dealer Total: <span id="dealerTotal"></span></h4>
@@ -37,5 +58,6 @@
             <div class="card down"></div>
         </div>
     </section>
+
 </body>
 </html>

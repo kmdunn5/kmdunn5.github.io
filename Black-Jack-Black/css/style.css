@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap');
 
 body {
     background-color: rgb(12, 83, 40);
@@ -18,6 +19,11 @@ span {
     font-weight: bold;
 }
 
+h1 {
+    font-family: "Open Sans", sans-serif;
+    text-align: center;
+}
+
 .cardContainer {
     position: absolute;
     margin-top: 10px;
@@ -34,6 +40,7 @@ span {
     border-radius: 10px;
     overflow: auto;
     box-shadow: 5px 10px black;
+    margin-right: 7px;
 }
 
 .Spades.\32 {
@@ -300,13 +307,74 @@ span {
     background-size: cover;
 }
 
+.modalButton {
+	padding: 5px 6px;
+	background-color: rgb(12, 83, 40);
+	border: none;
+	outline: none;
+	border-radius: 3px;
+	color: white;
+	font-family: 'Arial';
+	cursor: pointer;
+}
+
+.buttons {
+    margin: px;
+    padding: 5px 6px;
+	background-color: #677996;
+	outline: none;
+	border-radius: 3px;
+	color: white;
+	font-family: 'Arial';
+    font-size: large;
+    cursor: pointer;
+}
+
+#submit {
+    font-size: smaller;
+}
+
 #buttons {
-    /* background-color: forestgreen; */
     height: max-content;
     width: max-content;
 }
 
+#readOut {
+    font-style: italic;
+    text-align: center;
+}
 
+#bet {
+    text-align: center;
+}
+
+#modal {
+	background-color: rgba(0,0,0,0.4);
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 1;
+	/*This puts our modal in front of the body (which has a default z-index setting of `0`*/
+	overflow: auto;
+	/*If overflow is clipped, a scroll-bar should be added to see the rest of the content*/
+	display: none;
+	/*Set this to `none` so that the modal does not show initially on page load.*/
+}
+
+#modalText {
+    background-color: rgb(12, 83, 40);
+    height: 350px;
+    width: 550px;
+    border-radius: 2px;
+    margin: 150px auto;
+    /*This will set the margins for the top and the bottom to 150px (or larger). The right and left will automatically set themselves (and keep the box centered horizontally).*/
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+    /*This will give the box some depth.*/
+    padding: 2%;
+    line-height: 120%;
+}
 
 
 /* resize the cards if they are too big for the container */
