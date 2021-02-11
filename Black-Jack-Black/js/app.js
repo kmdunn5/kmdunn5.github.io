@@ -1,5 +1,7 @@
 console.log('Jack Black time!')
 
+/////// Tried to go for an OOP system, but it seemed a little convoluted to me. I might not understand the why behind the how to do it. 
+
 //=====================//
 //======Game State=====//
 //=====================//
@@ -167,7 +169,7 @@ class ButtonMethods {
     static deal = () => {
         if (currentGameState === gameStates[2] || currentGameState === '') {
             
-            //========remove card divs
+            //========remove card divs and reset game
             
             winner = '';
             $('.card').remove();
@@ -182,23 +184,24 @@ class ButtonMethods {
 
             CardMethods.dealCard(BlackJackConstants.$playerArea, 'up', BlackJackConstants.playerHand);
             playerTotal = BlackJackMethods.sum(BlackJackConstants.playerHand);
+            $('#playerTotal').text(playerTotal)
             
             //======add card div to dealer facedown
 
-            BlackJackConstants.$dealerArea.append($('<div class="card down">'));
-            dealerTotal = BlackJackMethods.sum(BlackJackConstants.dealerHand);
+            setTimeout( () => {BlackJackConstants.$dealerArea.append($('<div class="card down">'));
+            dealerTotal = BlackJackMethods.sum(BlackJackConstants.dealerHand)}, 500);
 
             //=====add card div to player
 
-            CardMethods.dealCard(BlackJackConstants.$playerArea, 'up', BlackJackConstants.playerHand);
+            setTimeout( () => {CardMethods.dealCard(BlackJackConstants.$playerArea, 'up', BlackJackConstants.playerHand);
             playerTotal = BlackJackMethods.sum(BlackJackConstants.playerHand);
-            $('#playerTotal').text(playerTotal);
+            $('#playerTotal').text(playerTotal)}, 1000);
             
             //========add card div to deal
 
-            CardMethods.dealCard(BlackJackConstants.$dealerArea, 'up', BlackJackConstants.dealerHand);
+            setTimeout( () => {CardMethods.dealCard(BlackJackConstants.$dealerArea, 'up', BlackJackConstants.dealerHand);
             dealerTotal = BlackJackMethods.sum(BlackJackConstants.dealerHand);
-            $('#dealerTotal').text(dealerTotal);
+            $('#dealerTotal').text(dealerTotal)}, 1500);
             
             // 
 
@@ -264,19 +267,11 @@ $bet.click(() => {
 
 
 
-
-
-
-// Thought process for recording cards totals
-// when dealing a card, create a new card object and push it into the proper hand array
-//      to accomplish this, I have to make the random number function return the number instead of the index....
-// make a new function that creates cards, calling each randomNumber and randomSuit as parameters, which will then fill the text, and the object
-
-// Maybe make the sums 1 variable, and just run a sum function each time with the correct hand parameter, return the number, then have a separate function that makes the text of the correct span the returned function number.
-
 // Shuffling the deck:
 // Set a for loop within a for loop to iterate over the suit array and then number array for each suit
 // 
+
+let deck = []
 
 
 // Ideas for shuffling arrays of cards.
