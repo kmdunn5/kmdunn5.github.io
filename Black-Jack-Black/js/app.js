@@ -215,7 +215,6 @@ class ButtonMethods {
                 winner = 'player';
                 evaluateBet();
                 currentGameState = gameStates[2];
-                BlackJackConstants.$readOut.text(currentGameState);
             }
         } else {
             alert('The game is in progress. Please finish the hand');
