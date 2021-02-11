@@ -25,7 +25,22 @@ If either the dealer or the player busts, the will be displayed too, and the app
 
 ### Some Problems
 
+-Some cards images are darker, must be because of the file itself.  
+-There is a separation between the first and second dealer card that I can't fix. I think it has something to do with removing it and prepending a new card, but I can't quite fix it.  
+
 ### Future Additions
+
+-Change the backs of the cards to make this game more Jack Black-y
+----Add different classes that will change the images on face down cards
+
+-Build, shuffle, and draw from a deck  
+----I currently have a function that will systematically randomize each card drawn. This means that I could potentially get the same card many times in a row. Mostly, this is fine, but with any scaling, it would make sense to make this game create a shuffled deck and pull from that deck
+
+-Add the ability to add more players to the table
+---- this would require a class to build each player that would then build all of the HTML and JS.
+
+
+
 
 Psuedocode:  
 
