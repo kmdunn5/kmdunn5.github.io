@@ -1,5 +1,5 @@
 # Black-Jack-Black
-[Black Jack game](kmdunn5.github.io/Black-Jack-Black/index.html)  
+[Black Jack game](https://kmdunn5.github.io/Black-Jack-Black/index.html)  
 
 
 ### Rules:  
