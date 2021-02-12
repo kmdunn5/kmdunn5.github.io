@@ -81,6 +81,7 @@ class BlackJackMethods {
             } else {
                 BlackJackConstants.$readOut.text('You both have the same number, it\'s a push!')
                 winner = 'push';
+                evaluateBet();
             }
         }
     }
