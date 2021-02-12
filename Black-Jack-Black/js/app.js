@@ -23,7 +23,11 @@ const evaluateBet = () => {
         $chipsTotal.text(playerChips);
         currentBet = 0
     } else if (winner === 'push') {
-        playerChips += currentBet
+        playerChips = playerChips + currentBet;
+        $chipsTotal.text(playerChips);
+        currentBet = 0;
+    } else {
+        currentBet = 0;
     }
 }
 //=====================//
