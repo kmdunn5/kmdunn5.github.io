@@ -1,3 +1,5 @@
+// This file is the growth after learning more about coding. OOP organization is better and makes sense, and each class gets instatiated when it needs to be, and doesn't get used unless it needs to be.
+
 //=====================//
 //======Constants======//
 //=====================//
@@ -204,7 +206,7 @@ class Table {
     createPlayers = (playerNum) => {
 
     }
-    
+
     checkWinner = () => {
         if (currentGameState !== gameStates[2]) {
             if (playerTotal > dealerTotal) {
