@@ -46,6 +46,7 @@ class BlackJackConstants {
     static playerHand = [];
     static dealerHand = [];
 }
+
 class BlackJackMethods {
     static sum = (hand) => {
         let total = 0;
@@ -292,7 +293,6 @@ $closeButton.click(() => {
   $modal.hide();
 });
 
-// $aboutButton.click(openModal// $closeButton.click(closeModal);
 
 
 
